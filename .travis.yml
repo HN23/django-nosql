@@ -1,0 +1,30 @@
+language: python
+
+python:
+    - "2.7"
+env:
+    - DJANGO_VERSION=1.5.8
+matrix:
+    allow_failures:
+
+# command to install dependencies
+
+before_install:
+    - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+    - echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+    - sudo apt-get update
+install:
+    - python setup.py install
+    - sudo apt-get install -y mongodb-org
+    - pip install tox coveralls coverage
+
+after_success:
+    - coveralls
+
+# command to run tests
+script:
+    - tox
+
+env:
+    -TOXENV=py27-1.5.8
+
