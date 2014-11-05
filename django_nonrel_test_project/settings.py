@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangotoolbox',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,10 +58,16 @@ WSGI_APPLICATION = 'django_nonrel_test_project.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-   'default' : {
-      'ENGINE' : 'django_mongodb_engine',
-      'NAME' : 'my_database'
-   }
+    'default' : {
+        'ENGINE' : 'django_mongodb_engine',
+        'NAME' : 'my_database',
+        'USER': 'user',
+        'PASSWORD': 'user',
+        'OPTIONS' : {
+            'tz_aware' : True,
+            
+        }
+    }
 }
 
 # Internationalization

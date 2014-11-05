@@ -381,8 +381,6 @@ class EmbeddedModelFieldTest(TestCase):
         self.assertGreater(get_field(instance).auto_now, auto_now)
 
 
-        import ipdb
-        ipdb.set_trace()
     def test_pre_save(self):
         obj = EmbeddedModelFieldModel(simple=EmbeddedModel())
         self._test_pre_save(obj, lambda instance: instance.simple)
