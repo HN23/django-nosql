@@ -26,6 +26,40 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DATABASES = {
+    'default' : {
+        'ENGINE' : 'django_mongodb_engine',
+        'NAME' : 'my_database',
+        'OPTIONS' : {
+            'tz_aware' : True,
+            
+        }
+    }
+}
+
+# if using google app engine
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'dbindexer',
+#         'TARGET': 'gae',
+#     },
+#     'gae': {
+#         'ENGINE': 'djangoappengine.db',
+#     },
+# }
+
+
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+
+
 
 # Application definition
 
@@ -37,16 +71,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangotoolbox',
-
-)
-
-MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'autoload',
+    'dbindexer'
 )
 
 ROOT_URLCONF = 'django_nonrel_test_project.urls'
@@ -57,18 +83,6 @@ WSGI_APPLICATION = 'django_nonrel_test_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
-DATABASES = {
-    'default' : {
-        'ENGINE' : 'django_mongodb_engine',
-        'NAME' : 'my_database',
-        'USER': 'user',
-        'PASSWORD': 'user',
-        'OPTIONS' : {
-            'tz_aware' : True,
-            
-        }
-    }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -88,3 +102,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# third party apps, djangoautoload,
+
