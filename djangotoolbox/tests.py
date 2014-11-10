@@ -48,6 +48,24 @@ class BlobFieldModelTestCase(TestCase):
         value = 1
         self.assertIn(blob.get_db_prep_save(value, connection), str(value))
 
+    def test_value_to_string(self):
+        blob = BlobField()
+        blob.attname = 'attname'
+        blob.value = 1
+        val = blob.value_to_string(blob)
+
+        self.assertEqual(val, 'attname')
+        blob.attname = 'value'
+        val = blob.value_to_string(blob)
+
+        self.assertEqual(val, str(blob.value))
+
+    @expectedFailure
+    def test_get_db_prep_lookup(self):
+        blob = BlobField()
+        lookup_type = 'in'
+        self.assertRaises(TypeError, blob.get_db_prep_lookup(lookup_type, value=1, connection=True))
+
 class BlobWidgetTestCase(TestCase):
 
     def test_render(self):
