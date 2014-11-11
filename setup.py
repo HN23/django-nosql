@@ -17,7 +17,7 @@ def runtests():
         setup()
  #   call_command('test', 'django_admin_smoke_tests')
     call_command('test', 'djangotoolbox')
-    # call_command('test', 'django_mongodb_engine')
+    call_command('test', 'django_mongodb_engine')
     sys.exit()
 
 setup(name='django-nonrel',
