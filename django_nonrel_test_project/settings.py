@@ -72,7 +72,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'djangotoolbox',
     'autoload',
-    'dbindexer'
+    'dbindexer',
+    'django_mongodb_engine'
 )
 
 ROOT_URLCONF = 'django_nonrel_test_project.urls'

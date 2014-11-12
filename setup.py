@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup
-import djangotoolbox
+import djangotoolbox, django_mongodb_engine
 
-package_name = 'djangotoolbox'
+package_name = 'django-nosql'
 
 def runtests():
     import os
@@ -16,8 +16,7 @@ def runtests():
     os.environ['DJANGO_SETTINGS_MODULE'] = 'django_nonrel_test_project.settings'
     if django.VERSION[0] == 1 and django.VERSION[1] >= 5:
         setup()
- #   call_command('test', 'django_admin_smoke_tests')
-    call_command('test')
+    call_command('test', 'djangotoolbox')
     sys.exit()
 
 setup(name='django-nonrel',
@@ -38,12 +37,12 @@ setup(name='django-nonrel',
         "Topic :: Software Development :: Libraries :: Python Modules"
     ],
     keywords='django nosql',
-    url='http://seanhayes.name/',
-    download_url='https://github.com/SeanHayes/django-mesh',
+    download_url='https://github.com/Hn23/django-nosql',
     license='GPL',
     packages=[
         'djangotoolbox',
         'django_nonrel_test_project',
+        'django_mongodb_engine',
     ],
     include_package_data=True,
     install_requires=['Django>=1.5', 'django-model-utils', 'django-mongodb-engine'],
