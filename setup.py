@@ -17,6 +17,7 @@ def runtests():
     if django.VERSION[0] == 1 and django.VERSION[1] >= 5:
         setup()
     call_command('test', 'djangotoolbox')
+
     sys.exit()
 
 setup(name='django-nonrel',

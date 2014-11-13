@@ -55,7 +55,7 @@ DATABASES = {
 
 
 
-# if using google app engine
+# # if using google app engine
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'dbindexer',
@@ -88,7 +88,8 @@ INSTALLED_APPS = (
     'djangotoolbox',
     'autoload',
     'dbindexer',
-    'django_mongodb_engine'
+    'django_mongodb_engine',
+    'djangoappengine'
 )
 
 ROOT_URLCONF = 'django_nonrel_test_project.urls'
