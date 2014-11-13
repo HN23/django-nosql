@@ -26,16 +26,34 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# DATABASES = {
+#     'default' : {
+#         'ENGINE' : 'django_mongodb_engine',
+#         'NAME' : 'my_database',
+#         'OPTIONS' : {
+#             'tz_aware' : True,
+            
+#         }
+#     }
+# }
+
+
 DATABASES = {
-    'default' : {
-        'ENGINE' : 'django_mongodb_engine',
-        'NAME' : 'my_database',
+    'default': {
+        'ENGINE': 'dbindexer',
+        'TARGET': 'django_mongodb_engine',
+    },
+    'django_mongodb_engine': {
+        'ENGINE': 'django_mongodb_engine',
+        'Name' : 'my_database',
         'OPTIONS' : {
             'tz_aware' : True,
-            
         }
-    }
+    },
 }
+
+
+
 
 # if using google app engine
 # DATABASES = {
@@ -57,9 +75,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
-
-
 
 # Application definition
 
