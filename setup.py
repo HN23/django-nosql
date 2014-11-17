@@ -46,7 +46,7 @@ setup(name='django-nonrel',
         'django_mongodb_engine',
     ],
     include_package_data=True,
-    install_requires=['Django>=1.5', 'django-model-utils', 'django-mongodb-engine'],
+    install_requires=[],
 
  #   tests_require=['django-admin-smoke-tests>=0.1.8',],
 
