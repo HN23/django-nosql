@@ -1,3 +1,12 @@
+============
+django-nosql
+============
+
+.. image:: https://travis-ci.org/greyside/django-nosql.svg?branch=master
+    :target: https://travis-ci.org/greyside/django-nosql
+.. image:: https://coveralls.io/repos/greyside/django-nosql/badge.png?branch=master
+    :target: https://coveralls.io/r/greyside/django-nosql?branch=master
+
 pre-reqs
 
 djangononrel: https://github.com/django-nonrel/django/archive/nonrel-1.5.zip
